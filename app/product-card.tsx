@@ -9,7 +9,7 @@ import {
 import Image from "next/image";
 
 interface ProductCardProps {
-  id: string;
+  id: number;
   title: string;
   price: number;
   description: string;

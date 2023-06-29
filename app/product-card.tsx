@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -30,7 +31,11 @@ export const ProductCard = (props: ProductCardProps) => {
       <CardContent>
         <Image src={image} width={500} height={500} alt={title} />
         <div className="mt-3">{price}</div>
-        <div className="flex items-center gap-2"></div>
+        <div className="flex items-center gap-2">
+          <Badge>{category}</Badge>
+          <Badge>{rating.rate}</Badge>
+          <Badge>{rating.count}</Badge>
+        </div>
       </CardContent>
     </Card>
   );

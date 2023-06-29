@@ -46,6 +46,7 @@ export default function ProductDetails() {
                 </span>
                 {product.rating.rate}
               </Badge>
+
               <Badge variant={"outline"} className="flex items-center h-8">
                 <span className="mr-1 text-blue-500">
                   <UsersIcon size={18} />

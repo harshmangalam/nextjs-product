@@ -1,18 +1,11 @@
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
 interface ProductCardProps {
   id: number;
   title: string;
   price: number;
-  description: string;
   category: string;
   image: string;
   rating: {
@@ -21,12 +14,11 @@ interface ProductCardProps {
   };
 }
 export const ProductCard = (props: ProductCardProps) => {
-  const { category, description, id, image, price, rating, title } = props;
+  const { category, id, image, price, rating, title } = props;
   return (
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
         <Image src={image} width={500} height={500} alt={title} />

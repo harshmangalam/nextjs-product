@@ -1,4 +1,4 @@
-import Image from "next/image";
+import "../styles/global.css";
 import { ProductCard } from "./product-card";
 
 export default function Home() {

@@ -1,26 +1,11 @@
 import { StarIcon } from "@/components/icons/star";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Prooduct } from "@/lib/types/product";
 import Image from "next/image";
 import Link from "next/link";
 
-interface ProductCardProps {
-  id: number;
-  title: string;
-  price: number;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-  };
-}
-export const ProductCard = (props: ProductCardProps) => {
+export const ProductCard = (props: Prooduct) => {
   const { category, id, image, price, rating, title } = props;
   return (
     <Link href={`/${id}`}>

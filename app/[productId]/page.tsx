@@ -2,22 +2,24 @@ import { StarIcon } from "@/components/icons/star";
 import { UsersIcon } from "@/components/icons/users";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Product } from "@/lib/types/product";
 import Image from "next/image";
 
-export default function ProductDetails() {
-  const product = {
-    id: 1,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: 109.95,
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
-  };
+async function getProduct(id: string) {
+  const resp = await fetch(`https://fakestoreapi.com/products/${id}`);
+  if (!resp.ok) {
+    throw new Error(`Failed to fetch product with id ${id}`);
+  }
+
+  return resp.json() as Promise<Product>;
+}
+
+export default async function ProductDetails({
+  params,
+}: {
+  params: { productId: string };
+}) {
+  const product = await getProduct(params.productId);
 
   return (
     <Card>

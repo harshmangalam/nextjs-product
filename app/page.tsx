@@ -1,3 +1,4 @@
+import { Product } from "@/lib/types/product";
 import "../styles/global.css";
 import { ProductCard } from "./product-card";
 
@@ -7,7 +8,7 @@ async function getProducts() {
     throw new Error("Failed to fetch products");
   }
 
-  return resp.json();
+  return resp.json() as Promise<Product[]>;
 }
 
 export default async function Home() {

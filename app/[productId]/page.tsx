@@ -7,7 +7,6 @@ import Image from "next/image";
 
 async function getProduct(id: string) {
   try {
-    console.log(process.env);
     const resp = await fetch(`https://fakestoreapi.com/products/${id}`);
     if (!resp.ok) {
       return null;

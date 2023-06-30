@@ -6,11 +6,17 @@ import { Product } from "@/lib/types/product";
 import Image from "next/image";
 
 async function getProduct(id: string) {
-  const resp = await fetch(`https://fakestoreapi.com/products/${id}`);
-  if (!resp.ok) {
-    throw new Error(`Failed to fetch product with id ${id}`);
+  try {
+    const resp = await fetch(`https://fakestoreapi.com/products/${id}`);
+    console.log(await resp.json());
+    if (!resp.ok) {
+      return null;
+    }
+    return resp.json() as Promise<Product>;
+  } catch (error) {
+    console.log(error);
+    return null;
   }
-  return resp.json() as Promise<Product>;
 }
 
 export default async function ProductDetails({
@@ -20,6 +26,9 @@ export default async function ProductDetails({
 }) {
   const product = await getProduct(params.productId);
 
+  if (!product) {
+    return <div className="text-center">Product not found</div>;
+  }
   return (
     <Card>
       <CardContent className="pt-6">

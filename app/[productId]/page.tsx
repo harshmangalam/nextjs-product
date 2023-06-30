@@ -10,7 +10,6 @@ async function getProduct(id: string) {
   if (!resp.ok) {
     throw new Error(`Failed to fetch product with id ${id}`);
   }
-
   return resp.json() as Promise<Product>;
 }
 

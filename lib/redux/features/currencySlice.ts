@@ -24,3 +24,4 @@ export const currency = createSlice({
 });
 
 export const { set, updateBase } = currency.actions;
+export default currency.reducer;

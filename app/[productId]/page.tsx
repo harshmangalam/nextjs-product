@@ -32,7 +32,7 @@ export default async function ProductDetails({
   return (
     <Card>
       <CardContent className="pt-6">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Image
             src={product.image}
             width={500}
@@ -44,7 +44,7 @@ export default async function ProductDetails({
           <section className="flex flex-col gap-y-4">
             <h2 className="text-xl">{product.title}</h2>
             <ProductPrice price={product.price} />
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
               <Badge className="h-8" variant={"destructive"}>
                 {product.category}
               </Badge>

@@ -10,17 +10,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { setRates, updateBase } from "@/lib/redux/features/currencySlice";
-import { useAppDispatch } from "@/lib/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { useEffect } from "react";
 
 export const CurrencyConverter = async ({
-  base,
   rates,
 }: {
   rates: Record<string, number>;
-  base: string;
 }) => {
   const dispatch = useAppDispatch();
+
   const handleChangeCurrency = (value: string) => {
     dispatch(updateBase(value));
   };
@@ -31,7 +30,11 @@ export const CurrencyConverter = async ({
     }
   }, [rates]);
   return (
-    <Select name="currency" onValueChange={handleChangeCurrency}>
+    <Select
+      defaultValue="USD"
+      name="currency"
+      onValueChange={handleChangeCurrency}
+    >
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Currency" />
       </SelectTrigger>

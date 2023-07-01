@@ -1,6 +1,6 @@
 import { Product } from "@/lib/types/product";
-import "../styles/global.css";
-import { ProductCard } from "./product-card";
+import "@/styles/global.css";
+import { ProductCard } from "@/components/product-card";
 
 async function getProducts() {
   const resp = await fetch("https://fakestoreapi.com/products?limit=10");

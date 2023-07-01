@@ -1,4 +1,5 @@
 import { StarIcon } from "@/components/icons/star";
+import { ProductPrice } from "@/components/product-price";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Product } from "@/lib/types/product";
@@ -19,9 +20,7 @@ export const ProductCard = (props: Product) => {
             className="w-full aspect-square"
           />
           <h2 className="text-xl mt-4 line-clamp-1">{title}</h2>
-          <h4 className="text-xl font-semibold tracking-tight mt-2">
-            ${price}
-          </h4>
+          <ProductPrice price={price} />
         </CardContent>
         <CardFooter>
           <div className="flex items-center gap-2">

@@ -6,7 +6,7 @@ type CurrencyState = {
 };
 
 const initialState = {
-  base: "EUR",
+  base: "USD",
   rates: {},
 } as CurrencyState;
 
@@ -14,8 +14,8 @@ export const currency = createSlice({
   name: "currency",
   initialState,
   reducers: {
-    set: (state, action: PayloadAction<CurrencyState>) => {
-      (state.base = action.payload.base), (state.rates = action.payload.rates);
+    setRates: (state, action: PayloadAction<Record<string, number>>) => {
+      state.rates = action.payload;
     },
     updateBase: (state, action: PayloadAction<string>) => {
       state.base = action.payload;
@@ -23,5 +23,5 @@ export const currency = createSlice({
   },
 });
 
-export const { set, updateBase } = currency.actions;
+export const { setRates, updateBase } = currency.actions;
 export default currency.reducer;

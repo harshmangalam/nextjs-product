@@ -1,5 +1,6 @@
 import { StarIcon } from "@/components/icons/star";
 import { UsersIcon } from "@/components/icons/users";
+import { ProductPrice } from "@/components/product-price";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Product } from "@/lib/types/product";
@@ -42,9 +43,7 @@ export default async function ProductDetails({
 
           <section className="flex flex-col gap-y-4">
             <h2 className="text-xl">{product.title}</h2>
-            <h4 className="text-xl font-semibold tracking-tight">
-              ${product.price}
-            </h4>
+            <ProductPrice price={product.price} />
             <div className="flex items-center gap-2">
               <Badge className="h-8" variant={"destructive"}>
                 {product.category}

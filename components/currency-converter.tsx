@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { set, updateBase } from "@/lib/redux/features/currencySlice";
+import { setRates, updateBase } from "@/lib/redux/features/currencySlice";
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { useEffect } from "react";
 
@@ -26,10 +26,10 @@ export const CurrencyConverter = async ({
   };
 
   useEffect(() => {
-    if (base && rates) {
-      dispatch(set({ base, rates }));
+    if (rates) {
+      dispatch(setRates(rates));
     }
-  }, [base, rates]);
+  }, [rates]);
   return (
     <Select name="currency" onValueChange={handleChangeCurrency}>
       <SelectTrigger className="w-[180px]">

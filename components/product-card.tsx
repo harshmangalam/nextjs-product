@@ -12,21 +12,20 @@ export const ProductCard = (props: Product) => {
     <Link href={`/${id}`}>
       <Card>
         <CardContent className="pt-6">
-          <div className="flex justify-center">
-            <Image
-              src={image}
-              width={200}
-              height={200}
-              className="aspect-square"
-              alt={title}
-            />
-          </div>
+          <Image
+            src={image}
+            width={300}
+            height={300}
+            className="aspect-square"
+            alt={title}
+          />
+
           <h2 className="text-xl mt-4 line-clamp-1">{title}</h2>
           <ProductPrice price={price} />
         </CardContent>
         <CardFooter>
           <div className="flex items-center gap-2">
-            <Badge variant={"destructive"}>{category}</Badge>
+            <Badge variant={"outline"}>{category}</Badge>
             <Badge variant={"secondary"} className="flex items-center">
               <span className="mr-1">
                 <StarIcon size={16} />

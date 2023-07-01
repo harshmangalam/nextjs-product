@@ -35,7 +35,7 @@ export const CurrencyConverter = async ({
       name="currency"
       onValueChange={handleChangeCurrency}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger aria-label="Select" className="w-[180px]">
         <SelectValue placeholder="Currency" />
       </SelectTrigger>
       <SelectContent>
